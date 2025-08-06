@@ -1,0 +1,20 @@
+<h2 class="heading"> Registration Form </h2>
+<form #form="ngForm" (ngSubmit)="submitForm()">
+    <label class="label">Name: </label>
+    <input type="text" name="name" [(ngModel)]="user.name" placeholder="Enter the Name" required />
+    <br /><br />
+    <label class="label">Email: </label>
+    <input type="text" name="email" [(ngModel)]="user.email" placeholder="Email Address" required />
+    <br /><br />
+    <label class="label">Password: </label>
+    <input type="text" name="password" [(ngModel)]="user.password" placeholder="Password" required>
+    <br /><br />
+    <button class="btn" type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+
+<p class="form-print" *ngIf="submitted">
+  <strong>✅Form Successfully Submitted!</strong> <br />
+  Name: {{ user.name }} <br />
+  Email: {{ user.email }} <br />
+  Password: {{ user.password }}
+</p>
